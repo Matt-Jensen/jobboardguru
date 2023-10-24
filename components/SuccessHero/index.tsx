@@ -18,7 +18,7 @@ const SuccessHero: FunctionComponent = () => {
       </header>
 
       <footer className={styles.footer}>
-        <p>Please check back again soon.</p>
+        <p style={{ fontWeight: 600 }}>Please check back again soon!</p>
         <a href={MAIN_SITE}>Return to JobBoardGuru</a>
         <br /><br /><br /><br />
         <p>If you would like to get in touch with the team or have any questions, <a href="mailto:mjens02@gmail.com">please email us</a></p>

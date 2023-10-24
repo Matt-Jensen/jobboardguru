@@ -113,8 +113,9 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
     if (evt) evt.preventDefault();
     const form = evt.target;
     disableSubmit(form);
+    addLoadingState(form);
     window.setTimeout(() =>
-      window.location.replace(`${SUCCESS_URL}?p=${basket.total}`));
+      window.location.replace(`${SUCCESS_URL}?p=${basket.total}`), 3000);
   }
 
   function disableSubmit(form: HTMLFormElement) {
@@ -135,6 +136,11 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
     submitButton.classList.add('SubmitButton--complete');
   }
 
+  function addLoadingState(form: HTMLFormElement) {
+    const submitButton = form.querySelector('button.SubmitButton');
+    if (submitButton) submitButton.textContent = 'Submitting...';
+  }
+
   // Autocorrect on load
   useEffect(() => {
     window.setTimeout(() => requestAnimationFrame(() => {
@@ -142,7 +148,6 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
       applyErrorStates(formEl);
     }), 400);
   }, []);
-
 
   return (
     <form
