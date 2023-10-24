@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { FunctionComponent, useState, useEffect, useRef } from 'react';
+import { MAIN_SITE } from '../../lib/constants';
 import basket from '../../common/services/basket';
 import domain from '../../config/domain';
+import product from '../../config/product';
 
 const SUCCESS_URL = domain.successPath;
 
@@ -199,8 +201,8 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
                                       <header className="Header">
                                         <div className="Header-Content flex-container justify-content-space-between align-items-stretch">
                                           <div className="Header-business flex-item width-grow flex-container align-items-center">
-                                            <Link href={basket.questionnaireUrl}>
-                                              <a className="Link Header-businessLink Link--primary" aria-label="Previous page" title="JobBoardGuru Questionnaire" target="_self">
+                                            <Link href={MAIN_SITE}>
+                                              <a className="Link Header-businessLink Link--primary" aria-label="Previous page" title="JobBoardGuru Main Site" target="_self">
                                                 <div style={{ position: 'relative' }}>
                                                   <div className="flex-container align-items-center">
                                                     <div className="Header-backArrowContainer" style={{ opacity: 1, transform: 'none' }}>
@@ -216,7 +218,7 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
                                                           </svg>
                                                         </div>
                                                         <span className="Header-businessLink-label Text Text-color--gray800 Text-fontSize--14 Text-fontWeight--500">Back</span>
-                                                        <h1 className="Header-businessLink-name Text Text-color--gray800 Text-fontSize--14 Text-fontWeight--500 Text--truncate A B E G I K T">Questions</h1>
+                                                        <h1 className="Header-businessLink-name Text Text-color--gray800 Text-fontSize--14 Text-fontWeight--500 Text--truncate A B E G I K T">Back</h1>
                                                       </div>
                                                     </div>
                                                   </div>
@@ -229,10 +231,10 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
                                       <div>
                                         <div className="ProductSummary">
                                           <div className="ProductSummary-info">
-                                            <span className="Text Text-color--gray500 Text-fontSize--16 Text-fontWeight--500">U.S. Formation Services</span>
+                                            <span className="Text Text-color--gray500 Text-fontSize--16 Text-fontWeight--500">Total</span>
                                             <span className="ProductSummary-totalAmount Text Text-color--default Text-fontWeight--600 Text--tabularNumbers" id="ProductSummary-totalAmount">${basket.total}</span>
                                             <span className="ProductSummary-description Text Text-color--gray500 Text-fontSize--14 Text-fontWeight--500" id="ProductSummary-description">
-                                              <div className="ProductSummaryDescription ProductSummaryDescription--singleItem"></div>
+                                              <div className="ProductSummaryDescription ProductSummaryDescription--singleItem" style={{ fontWeight: 600 }}>Billed after the {product.freeTrialStatement}.</div>
                                             </span>
                                           </div>
                                         </div>

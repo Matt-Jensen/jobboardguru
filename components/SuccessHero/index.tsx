@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { MAIN_SITE } from '../../lib/constants';
 import styles from './styles.module.scss';
 
 const SuccessHero: FunctionComponent = () => {
@@ -18,7 +19,7 @@ const SuccessHero: FunctionComponent = () => {
 
       <footer className={styles.footer}>
         <p>Please check back again soon.</p>
-        <a href="https://jobboardguru.com/">Return to JobBoardGuru</a>
+        <a href={MAIN_SITE}>Return to JobBoardGuru</a>
         <br /><br /><br /><br />
         <p>If you would like to get in touch with the team or have any questions, <a href="mailto:mjens02@gmail.com">please email us</a></p>
       </footer>
