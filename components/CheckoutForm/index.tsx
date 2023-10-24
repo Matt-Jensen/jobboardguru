@@ -115,7 +115,7 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
     disableSubmit(form);
     addLoadingState(form);
     window.setTimeout(() =>
-      window.location.replace(`${SUCCESS_URL}?p=${basket.total}`), 3000);
+      window.location.replace(`${SUCCESS_URL}?p=${basket.total}`), 2500);
   }
 
   function disableSubmit(form: HTMLFormElement) {
