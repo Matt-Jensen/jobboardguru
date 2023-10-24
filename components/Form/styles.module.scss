@@ -1,0 +1,257 @@
+@import '../../styles/index';
+
+.container {
+  padding-left: $global-mlg-padding;
+  padding-right: $global-mlg-padding;
+
+  max-width: $landing-page-mobile-max-width + (2 * $global-mlg-padding);
+  margin: 0 auto;
+
+  @include media-query(desktop) {
+    padding-right: 0;
+  }
+}
+
+.fieldset {
+  margin: 0 0 $global-lg-padding;
+  padding: rem-calc(28) $global-mlg-padding;
+  background-color: #fff;
+  border: 1px solid $light-gray-9-color;
+  border-radius: $global-radius;
+
+  &__legend {
+    margin-bottom: $global-lg-padding;
+    font-family: $body-font-family;
+    font-weight: bold;
+    font-size: rem-calc(15);
+    line-height: rem-calc(20);
+    color: $dark-blue-2-color;
+  }
+
+  &__main {
+    text-align: left;
+
+    &--grid {
+      display: grid;
+      grid-gap: $global-mlg-padding;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @include media-query(desktop) {
+    &__main--grid {
+      grid-template-columns: 1fr 1fr;
+
+      // Expand last, odd, info pill to fix container
+      .addButtonContainer,
+      .infoPill:nth-child(odd):last-child {
+        grid-column: 1 / 3;
+      }
+    }
+  }
+}
+
+.label {
+  display: block;
+  flex: 1 0 100%;
+  margin: 0 0 rem-calc(3);
+  font-size: rem-calc(14);
+  line-height: rem-calc(20);
+  color: $dark-blue-2-color;
+
+  > svg {
+    display: inline-block;
+    margin-right: rem-calc(6);
+    transform: translateY(2px);
+  }
+
+  &__successMsg {
+    display: inline-block;
+    margin-left: $global-sm-padding;
+    color: $light-gray-color;
+  }
+}
+
+.successHeading,
+.loadingHeading {
+  line-height: rem-calc(38);
+  margin-bottom: 0;
+}
+
+.successHeading {
+  color: $success-color;
+
+  > svg {
+    display: inline-block;
+    width: $global-mlg-padding;
+    height: $global-mlg-padding;
+    transform: translateY(5px);
+    margin-right: $global-sm-padding;
+  }
+}
+
+.loadingHeading {
+  color: $medium-gray-color;
+  @extend %ani-blink;
+}
+
+.legalCopy {
+  display: block;
+  text-align: center;
+  font-size: rem-calc(12);
+  line-height: rem-calc(20);
+  color: $light-gray-8-color;
+}
+
+.infoPill {
+  position: relative;
+  padding: rem-calc(21) rem-calc(20) rem-calc(19) rem-calc(55);
+  font-size: rem-calc(13);
+  line-height: rem-calc(18);
+  color: #005aa3;
+  background-color: $info-color;
+  border: 1px solid #d0e9fb;
+  border-radius: $global-radius;
+
+  > svg {
+    position: absolute;
+    top: rem-calc(20);
+    left: rem-calc(20);
+  }
+}
+
+.formField {
+  text-align: left;
+
+  &__control {
+    width: 100%;
+    padding: 0 $global-md-padding;
+    line-height: rem-calc(44);
+    font-weight: normal;
+    font-size: rem-calc(14);
+    color: $dark-blue-2-color;
+    background-color: #fff;
+    border: 1px solid $form-control-border-color;
+    border-radius: $global-radius;
+
+    &--success {
+      border-color: $success-color
+    }
+
+    &::placeholder {
+      color: #72859c;
+    }
+
+    &:disabled {
+      background-color: $light-gray-3-color;
+    }
+  }
+
+  &__postfix {
+    display: block;
+    flex: 0 1 auto;
+    padding: 0 $global-md-padding;
+    font-size: 1rem;
+    line-height: rem-calc(45);
+    font-weight: bold;
+    color: #515a63;
+    background-color: $form-control-border-color;
+    border-top-right-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  @include media-query(large-desktop) {
+    &__postfix {
+      padding-left: $global-padding;
+      padding-right: $global-padding;
+    }
+  }
+}
+
+.formField--postfix {
+  display: flex;
+  flex-wrap: wrap;
+
+  .formField__control {
+    flex: 1 1 auto;
+    width: auto;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+select.formField__control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: rem-calc(44);
+  padding-right: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='12px' height='7px' viewBox='0 0 12 7' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg transform='translate(-832.000000, -281.000000)' fill='%2331363D' fill-rule='nonzero'%3E%3Cg transform='translate(130.000000, 159.000000)'%3E%3Cpolygon transform='translate(707.568542, 125.500000) rotate(-270.000000) translate(-707.568542, -125.500000) ' points='705.467083 120 704.17 121.297083 708.372917 125.5 704.17 129.702917 705.467083 131 710.967083 125.5'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - $global-md-padding) center;
+}
+
+[type=number].formField__control {
+  padding-right: 0;
+}
+
+[type=checkbox].formField__control {
+  display: block;
+  flex: 1 0 auto;
+  width: rem-calc(21);
+  height: rem-calc(20);
+  line-height: rem-calc(20);
+  padding: 0;
+  margin-right: $global-sm-padding;
+
+  + .label {
+    cursor: pointer;
+  }
+}
+
+// Add button component
+.addButtonContainer {
+  @extend %centerLineBackground;
+  text-align: center;
+
+  &::after {
+    @extend%centerLineBackground__background;
+  }
+}
+
+.addButton {
+  @extend %button;
+  @extend %centerLineBackground__foreground;
+  white-space: nowrap;
+
+  > svg {
+    display: none;
+    margin-right: $global-md-padding;
+    transform: translateY(4px);
+  }
+
+  @include media-query(tablet) {
+    > svg {
+      display: inline-block;
+    }
+  }
+}
+
+.removeButton {
+  padding: 0;
+  background-color: transparent;
+  border-width: 0;
+  text-decoration: underline;
+  color: $medium-gray-color;
+  font-size: rem-calc(13);
+  line-height: rem-calc(20);
+  transition: color linear 300ms;
+
+  &:hover {
+    color: $alert-color;
+  }
+}

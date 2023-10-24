@@ -1,0 +1,47 @@
+@import '../../styles/index';
+
+.container {
+  margin: $global-lg-padding auto;
+  max-width: $max-container-width;
+
+  &__header {
+    grid-column: 1 / 3;
+    padding: 0 $global-mlg-padding;
+    max-width: $landing-page-mobile-max-width + (2 * $global-mlg-padding);
+    margin: 0 auto;
+  }
+
+  &__content {
+    // placeholder
+  }
+
+  &__sidebar {
+    display: none;
+    padding-right: $global-mlg-padding;
+  }
+
+  @include media-query(desktop) {
+    display: grid;
+    grid-gap: 0 $global-xlg-padding;
+    grid-template-columns: 1fr minmax(33%, #{rem-calc(354)});
+
+    &__header {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    &__sidebar {
+      display: block;
+    }
+  }
+}
+
+//
+// Typography
+//
+
+.heading {
+  font-size: rem-calc(31);
+  line-height: rem-calc(37);
+  margin-bottom: $global-mlg-padding;
+}

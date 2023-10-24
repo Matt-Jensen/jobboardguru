@@ -1,0 +1,62 @@
+@import '../../styles/index';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  height: 100%;
+
+  // Background patterns
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+    background-image: url(/assets/components/successHero/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    width: rem-calc(270);
+    height: rem-calc(270);
+    top: 0;
+    z-index: 1;
+  }
+
+  // Left design pattern
+  &::before {
+    left: 0;
+  }
+
+  // Right design pattern
+  &::after {
+    right: 0;
+    transform: scaleX(-1); // Flip on Y axis
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.header {
+  padding: 0 $global-mlg-padding;
+  max-width: rem-calc(600);
+
+  > img {
+    display: inline-block;
+    margin-bottom: $global-sm-padding;
+  }
+}
+
+.heading {
+  font-size: rem-calc(40);
+  line-height: 1.3em;
+  margin-bottom: $global-mlg-padding;
+}
+
+.footer {
+  max-width: rem-calc(480);
+}

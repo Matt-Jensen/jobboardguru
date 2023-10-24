@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  install:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deps
+    command: [sh, -c, 'yarn --frozen-lockfile']
+    volumes:
+      - .:/app
+
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    command: [sh, -c, 'yarn run lint']
+    volumes:
+      - .:/app
+
+  unit-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    command: [sh, -c, 'yarn run unit-test']
+    volumes:
+      - .:/app
+
+  integration-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    command: [sh, -c, 'yarn run integration-test']
+    volumes:
+      - .:/app
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    command: [sh, -c, 'yarn lint && yarn test']
+    volumes:
+      - .:/app
+
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    command: [sh, -c, 'yarn build && yarn export']
+    volumes:
+      - .:/app
+
+  start:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    command: [sh, -c, 'yarn dev']
+    volumes:
+      - .:/app
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+volumes:
+  node_modules:

@@ -1,0 +1,113 @@
+@import '../../styles/index';
+
+.navigation {
+  display: flex;
+  height: $navigation-height;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  position: sticky;
+  background-color: $white-color;
+  box-shadow: 0 rem-calc(2) rem-calc(4) rgba(0, 0, 0, 0.16);
+  z-index: 1000;
+
+  > * {
+    display: flex;
+    align-items: center;
+    height: $navigation-height;
+  }
+
+  &__logo {
+    width: rem-calc(151);
+    margin-left: rem-calc(11);
+    padding-right: $global-padding;
+  }
+
+  &__checkout {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: rem-calc(128);
+    padding: 0 $global-mlg-padding;
+    border-left: 1px solid $light-gray-color;
+
+    &__label {
+      display: block;
+      font-weight: bold;
+      font-size: rem-calc(12);
+      line-height: rem-calc(15);
+      color: $light-gray-color;
+    }
+
+    &__amount {
+      display: block;
+      font-size: rem-calc(14);
+      line-height: rem-calc(18);
+      color: $dark-blue-2-color;
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+  }
+
+  @include media-query(desktop) {
+    &__logo {
+      padding-left: rem-calc(9);
+    }
+
+    &__checkout {
+      display: none;
+    }
+  }
+}
+
+.progressBar {
+  position: absolute;
+  top: $navigation-height - rem-calc(4);
+  width: 100%;
+  height: rem-calc(4);
+  display: block;
+  border-radius: 0;
+  background-color: $light-gray-7-color;
+
+  // Reset
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+
+  // Chrome
+  &::-webkit-progress-bar {
+    background-color: $light-gray-7-color;
+  }
+  &::-webkit-progress-value {
+    background-color: $light-blue-2-color;
+  }
+
+  // Firefix
+  &::-moz-progress-bar {
+    background-color: $light-blue-2-color;
+  }
+
+  // Edge
+  &::-ms-fill {
+    background-color: $light-blue-2-color;
+  }
+}
+
+.progressBarText {
+  position: absolute;
+  display: none;
+  top: rem-calc(22);
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: rem-calc(15);
+  font-weight: bold;
+  line-height: rem-calc(20);
+  color: $light-gray-8-color;
+
+  // Reveal for larger devices
+  @include media-query(large-tablet) {
+    display: inline-block;
+  }
+}

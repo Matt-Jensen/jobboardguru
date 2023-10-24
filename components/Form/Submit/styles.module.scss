@@ -1,0 +1,23 @@
+@import '../../../styles/index';
+
+.container {
+  &--submit {
+    margin-bottom: $global-xxlg-padding;
+  }
+
+  &--right {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.button {
+  @extend %button;
+  white-space: nowrap;
+  width: 100%;
+
+  &--large {
+    @extend %button--large;
+    width: auto;
+  }
+}

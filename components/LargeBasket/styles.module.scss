@@ -1,0 +1,62 @@
+@import '../../styles/index';
+
+.container {
+  max-width: rem-calc(354);
+  margin: 0 auto $global-lg-padding;
+  position: sticky;
+  top: $navigation-height + $global-padding;
+  text-align: center;
+}
+
+.actionButton {
+  @extend %button;
+  @extend %button--hollow;
+}
+
+.list {
+  list-style: none;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $global-padding;
+    text-align: left;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $light-gray-8-color;
+  padding-top: $global-md-padding;
+  margin-bottom: $global-llg-padding;
+}
+
+//
+// Typography
+//
+//
+
+.heading {
+  display: block;
+  margin: rem-calc(-29) auto $global-padding;
+  font-family: $header-font-family;
+  color: $header-font-color;
+  font-size: rem-calc(69);
+  line-height: rem-calc(77);
+}
+
+.subHeading {
+  display: block;
+  margin-bottom: rem-calc(21);
+  font-size: rem-calc(15);
+  font-weight: bold;
+  line-height: rem-calc(20);
+  color: $light-gray-8-color;
+}
+
+.description {
+  font-size: rem-calc(15);
+  line-height: rem-calc(20);
+  color: $dark-blue-2-color;
+}

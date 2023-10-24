@@ -1,0 +1,102 @@
+@import '../../styles/index';
+
+.container {
+  padding: 0 $global-mlg-padding;
+  max-width: $landing-page-mobile-max-width + (2 * $global-mlg-padding);
+  margin: 0 auto rem-calc(82);
+
+  &__main {
+    padding: $global-mlg-padding;
+    background-color: $white-color;
+    border: 2px solid $light-blue-3-color;
+
+    &__callToAction {
+      @extend %centerLineBackground;
+      margin-bottom: $global-llg-padding;
+      text-align: center;
+
+      &::after {
+        // Button background line
+        @extend%centerLineBackground__background;
+      }
+    }
+  }
+}
+
+.featureList {
+  list-style: none;
+  margin-bottom: $global-llg-padding;
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $global-mlg-padding;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__aside {
+      min-width: rem-calc(24);
+      margin-right: $global-md-padding;
+    }
+
+    // &__main {}
+
+    > svg {
+      fill: $dark-blue-color;
+    }
+  }
+}
+
+.actionButton {
+  @extend %button;
+  @extend %centerLineBackground__foreground;
+}
+
+.checkbox {
+  width: rem-calc(19);
+  height: rem-calc(19);
+  margin-top: 1px;
+}
+
+//
+// Typography
+//
+
+.groupHeading {
+  margin-bottom: $global-mlg-padding;
+  font-size: rem-calc(18);
+  font-family: $body-font-family;
+  font-weight: bold;
+  line-height: rem-calc(23);
+  color: $light-gray-color;
+}
+
+.featureHeading {
+  margin: rem-calc(3) 0;
+  font-size: rem-calc(13);
+  font-family: $body-font-family;
+  font-weight: bold;
+  line-height: rem-calc(17);
+  color: $dark-blue-color;
+}
+
+.featureDescription {
+  margin: 0;
+  font-size: rem-calc(13);
+  line-height: rem-calc(20);
+  color: $dark-blue-2-color;
+}
+
+@include media-query(large-tablet) {
+  .featureList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $global-mlg-padding;
+
+    &__item {
+      margin-bottom: 0;
+    }
+  }
+}

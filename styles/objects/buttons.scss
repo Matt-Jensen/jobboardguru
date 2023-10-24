@@ -1,0 +1,30 @@
+%button {
+  appearance: none;
+  display: inline-block;
+  padding: 0 $global-llg-padding;
+  background-color: $primary-color;
+  color: $white-color;
+  font-weight: bold;
+  font-family: $body-font-family;
+  font-size: rem-calc(15);
+  line-height: rem-calc(42);
+  border-radius: rem-calc(5);
+  border-width: 0;
+
+  &:disabled {
+    background-color: #a4cdef;
+    cursor: not-allowed;
+  }
+}
+
+%button--large {
+  padding-left: rem-calc(42);
+  padding-right: rem-calc(42);
+  line-height: rem-calc(52);
+}
+
+%button--hollow {
+  background-color: transparent;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+}
