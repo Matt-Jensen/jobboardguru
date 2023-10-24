@@ -370,7 +370,7 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
                                                               className="CheckoutInput CheckoutInput--tabularnums Input Input--empty"
                                                               id="cardExpiry"
                                                               required
-                                                              pattern="^\d{1,2}(\/|\s)\d{2}$"
+                                                              pattern="^\d{1,2}(\/|\s)+\d{2,4}$"
                                                               name="cardExpiry"
                                                               type="text"
                                                               aria-label="Expiration"
