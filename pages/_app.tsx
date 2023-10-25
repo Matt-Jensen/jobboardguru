@@ -10,7 +10,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (<>
     <Component {...pageProps} />
-      {GTM_ID && (
+      {GTM_ID && isProduction && (
         <>
           <Script
             strategy="afterInteractive"
