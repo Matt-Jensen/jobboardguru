@@ -10,7 +10,6 @@ const SuccessPage = ({}: Props) => {
 
   return (
     <>
-      <Layout>
         <Head>
           <title>JobBoardGuru | Checkout Successful</title>
           {/* Meta Pixel Code */}
@@ -32,10 +31,11 @@ fbq('track', 'PageView');`,
 src="https://www.facebook.com/tr?id=638929181727023&ev=PageView&noscript=1"
 /></noscript>
 {/* End Meta Pixel Code */}
-
-<meta name="facebook-domain-verification" content="nyxrlp23trbs1paahn80fe4diem0lc" />
+<Script
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{ __html: `fbq('track', 'AddPaymentInfo');` }} />
         </Head>
-
+      <Layout>
         <SuccessHero />
       </Layout>
     </>
