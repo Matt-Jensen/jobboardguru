@@ -14,7 +14,7 @@ const SuccessPage = ({}: Props) => {
           <title>JobBoardGuru | Checkout Successful</title>
           {/* Meta Pixel Code */}
 <Script
-            strategy="beforeInteractive"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -25,15 +25,13 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '638929181727023');
-fbq('track', 'PageView');`,
+fbq('track', 'PageView');
+fbq('track', 'AddPaymentInfo');`,
             }} />
 <noscript><img height="1" width="1" style={{ display: 'none' }}
 src="https://www.facebook.com/tr?id=638929181727023&ev=PageView&noscript=1"
 /></noscript>
 {/* End Meta Pixel Code */}
-<Script
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{ __html: `fbq('track', 'AddPaymentInfo');` }} />
         </Head>
       <Layout>
         <SuccessHero />
