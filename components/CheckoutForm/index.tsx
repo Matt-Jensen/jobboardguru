@@ -4,6 +4,7 @@ import { MAIN_SITE } from '../../lib/constants';
 import basket from '../../common/services/basket';
 import domain from '../../config/domain';
 import product from '../../config/product';
+import metrics from '../../common/services/metrics';
 
 const SUCCESS_URL = domain.successPath;
 
@@ -149,12 +150,26 @@ const CheckoutForm: FunctionComponent<Props> = ({ email }) => {
     }), 400);
   }, []);
 
+  const trackFormChange = (evt: any) => {
+    try {
+      const { target } = evt || {};
+      const metricConfig: any = {};
+
+      if (target && target.id) {
+        metricConfig.elementId = target.id
+      }
+
+      metrics.sendEvent('checkout_form_change', metricConfig);
+    } catch {}
+  }
+
   return (
     <form
       className="A F G J S checkoutPage"
       onKeyDown={applyErrorStates}
       onSubmit={handleFormSubmit}
       onBlur={applyErrorStates}
+      onChange={trackFormChange}
       ref={formElementRef}>
       <div className="tatsu-z-JHd5-2Ie t OB tatsu-section-offset">
         <div className="w OB X c i o">
